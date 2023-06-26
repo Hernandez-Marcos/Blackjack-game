@@ -6,12 +6,10 @@ if (age < 21) {
     console.log("Welcome")
 }*/
 
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let cards = [firstCard, secondCard]
-let sum = firstCard + secondCard;
+let cards = []
+let sum = 0;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
@@ -24,6 +22,11 @@ function getRandomCard() {
 }
 
 function startGame() {
+    isAlive = true;
+    let firstCard = getRandomCard();
+    let secondCard = getRandomCard();
+    cards = [firstCard, secondCard];
+    sum = cards[0] + cards[1];  
     renderGame()
 }
 
@@ -47,9 +50,11 @@ function renderGame() {
 }
 
 function newCard() {
-    card = getRandomCard();
-    sum += card;
-    cards.push(card);
-    console.log(cards)
-    renderGame();
+    if (isAlive && !hasBlackJack) {
+        card = getRandomCard();
+        sum += card;
+        cards.push(card);
+        console.log(cards)
+        renderGame();
+    } 
 }
