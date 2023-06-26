@@ -22,5 +22,6 @@ button {
     background: goldenrod;
     border: none;
     border-radius: 2px;
-
+    padding: 5px 0;
+    margin: 2px 0;
 }
